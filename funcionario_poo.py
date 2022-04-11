@@ -42,13 +42,13 @@ class Employee(ABC):
         self.last_name = last_name
 
     def get_first_name(self):
-        return first_name
+        return self.first_name
 
     def set_first_name(self, new_first_name):
         self.first_name = new_first_name
 
     def get_last_name(self):
-        return last_name
+        return self.last_name
 
     def set_last_name(self, new_last_name):
         self.last_name = new_last_name
@@ -68,7 +68,7 @@ class FulltimeEmployee(Employee):
         self.salary = salary
 
     def get_salary(self):
-        return salary
+        return self.salary
 
     def set_salary(self, new_salary):
         self.salary = new_salary
@@ -84,13 +84,13 @@ class HourlyEmployee(Employee):
         self.value = value
 
     def get_worked_hours(self):
-        return worked_hours
+        return self.worked_hours
 
     def set_worked_hours(self, new_worked_hours):
         self.worked_hours = new_worked_hours
 
     def get_value(self):
-        return value
+        return self.value
 
     def set_value(self, new_value):
         self.value = new_value
@@ -113,13 +113,12 @@ class Payroll:
 
 
 if __name__ == '__main__':
-
     # employee1 = Employee('Bla', 'Bla Bla')
     # TypeError: Can't instantiate abstract class Employee with abstract method comput_salary
     # print(employee1)
 
     employee2 = FulltimeEmployee('Fulano', 'de Tal', 2000)
-    print(f'\n*** EMPREGADOS CADASTRADOS ***\n\n- EMPREGADO 2\nNOME COMPLETO: {employee2.full_name()}'
+    print(f'\n    *** EMPREGADOS CADASTRADOS ***\n\n- EMPREGADO 2\nNOME COMPLETO: {employee2.full_name()}'
           f'\nCÁLCULO SALÁRIO: R$ {employee2.compute_salary()}')
 
     employee3 = HourlyEmployee('Ciclano', 'Sauro', 160, 30)
@@ -130,5 +129,4 @@ if __name__ == '__main__':
     payroll.add(employee2)
     payroll.add(employee3)
 
-    print(payroll.print_payroll())
-    
+    payroll.print_payroll()
