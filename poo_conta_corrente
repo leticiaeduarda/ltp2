@@ -1,0 +1,28 @@
+class Conta_corrente:
+
+  def __init__(self, n_conta, nome_correntista, saldo = 0.0):
+    self.n_conta = n_conta
+    self.nome_correntista = nome_correntista
+    self.saldo = saldo
+
+  def alterar_nome(self, nv_nome):
+    if type(nv_nome) == str:
+      self.nome_correntista = nv_nome
+    else:
+      print(f'- ERRO: {nv_nome} tipo de dado informado é inválido. :(\nFormato válido deve ser str.')
+
+  def depostio(self, valor_deposito):
+    self.saldo = self.saldo + valor_deposito
+
+  def saque(self, valor_saque):
+    self.saldo = self.saldo - valor_saque
+
+if __name__ == '__main__':
+  conta1 = Conta_corrente(31236556,'Leticia')
+  print(conta1.n_conta, conta1.nome_correntista, conta1.saldo)
+  conta1.alterar_nome('Eduarda')
+  conta1.depostio(1000)
+  print(conta1.n_conta, conta1.nome_correntista, conta1.saldo)
+  conta1.saque(200)
+  print(conta1.n_conta, conta1.nome_correntista, conta1.saldo)
+  conta1.alterar_nome(65145)
